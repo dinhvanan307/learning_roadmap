@@ -19,7 +19,7 @@
 
 | Unit | Topics chính | Đầu ra |
 | --- | --- | --- |
-| [1. React và trạng thái](units/01.md) | JavaScript modules; Promise; TypeScript; component; props/state; controlled form; keys | Component và các trạng thái UI có dữ liệu fixture. |
+| [1. React và trạng thái](units/01.md) | Nền HTML/CSS/JavaScript/TypeScript; Promise/fetch; component; props/state; hooks; controlled form; keys | Form nền tảng, component và các trạng thái UI có dữ liệu fixture. |
 | [2. Next.js và API](units/02.md) | routing/layout; Server/Client Components; data fetching; SSR/CSR; hydration; auth boundary | Luồng UI → API → DB và sơ đồ nơi code chạy. |
 | [3. Trải nghiệm và Tailwind](units/03.md) | utility class; responsive; semantic HTML; focus; loading/empty/error; accessibility | Checklist UI, ảnh minh chứng và bug note. |
 

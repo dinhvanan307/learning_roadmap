@@ -6,6 +6,10 @@ Unit gắn trực tiếp nguồn cần dùng. Bài tập, phân bổ giờ, mứ
 
 | Nguồn | Đọc phần nào / dùng cho việc gì |
 | --- | --- |
+| [Python Tutorial](https://docs.python.org/3/tutorial/) | Nền Python: kiểu dữ liệu, control flow, hàm, file, exception, module và virtual environment. |
+| [MDN Structuring content](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content) | HTML semantic, cấu trúc nội dung và nền accessibility trước framework. |
+| [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) | JavaScript functions, collections, objects, promises và modules trước React. |
+| [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html) | Types, narrowing, functions và object types sau nền JavaScript. |
 | [Python Classes](https://docs.python.org/3/tutorial/classes.html) | Names/objects, scope, class/instance, iterator và generator. |
 | [Python asyncio Tasks](https://docs.python.org/3/library/asyncio-task.html) | Coroutine, task, TaskGroup, timeout và cancellation. |
 | [pytest Get Started](https://docs.pytest.org/en/stable/getting-started.html) | assert, exception, fixture và cách chạy test. |

@@ -4,6 +4,14 @@
 
 **Vai trò:** giai đoạn chính theo mindmap. **Đầu vào:** Có một feature nhỏ từ B để review và sửa; có thể học cách ghi hỗ trợ AI ngay từ A.
 
+## Phạm vi kiến thức của Phase C
+
+- [C.1 · Concept khi làm việc với AI](../../../../ROADMAP.md#c-1)
+- [C.2 · SDLC, Spec-driven Development và Agile](../../../../ROADMAP.md#c-2)
+- [C.3 · Git workflow, code review và CI](../../../../ROADMAP.md#c-3)
+
+Xem checklist topics, thực hành và độ sâu tại các liên kết trên. Hoàn thành toàn bộ phần bắt buộc và gate của phase; ghi bằng chứng trong [tracker từng phần](../../../../progress/PHASES.md).
+
 ## Program Learning Outcomes
 
 Sau chương trình, người học có thể:

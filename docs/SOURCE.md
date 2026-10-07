@@ -45,7 +45,9 @@ Mindmap có cả tư vấn cá nhân, nhận định thị trường và các nh
 
 CLO/PLO cụ thể, bài tập, câu hỏi tự kiểm, các mốc sản phẩm, khoảng giờ, mức ưu tiên và danh mục concept là thiết kế để biến mindmap thành lộ trình có thể học/review. Những mục bổ sung như provenance, testing, idempotency, ACL và rollback làm rõ cách kiểm chứng; không tuyên bố chúng là trích nguyên văn từ mindmap.
 
-Tên phase được giữ theo nguồn. Các lựa chọn phạm vi như ML/DL mở rộng, một cloud target, GraphQL/Kubernetes học có điều kiện là quyết định của bản roadmap cho mục tiêu AI Application; có thể chỉnh cùng mentor.
+Khung A–G được giữ theo nguồn. Theo yêu cầu chia rõ kiến thức của người dùng, bản hiện tại tách thành 29 phần A.1–G.5 và 139 mục checklist: A có 5 phần, B có 5, C có 3, D có 5, E có 3, F có 3, G có 5. Tên phase được diễn đạt rõ trọng tâm, nhất là E về nghiên cứu/thử nghiệm và F về kiến trúc/tích hợp/sản phẩm. Đây là cách tổ chức của repo, không phải các nhánh con được chép nguyên văn từ Xmind.
+
+Các lựa chọn phạm vi như ML/DL mở rộng, một cloud target, GraphQL/Kubernetes học có điều kiện là quyết định của bản roadmap cho mục tiêu AI Application; có thể chỉnh cùng mentor. Bổ sung nền Python và HTML/CSS/JavaScript/TypeScript để không bỏ qua kiến thức trước khi dùng framework. Giữ nguyên mã course, outcomes và tài liệu lưu trữ để các liên kết bài học tiếp tục dùng được.
 
 ## Trạng thái thật của repo
 

@@ -4,6 +4,7 @@ Copy thành `progress/reviews/YYYY-MM-DD-course.md` khi có bài làm; thư mụ
 
 ## Mục tiêu
 
+- Phase / phần kiến thức (ví dụ A / A.2) và các mục checklist cần chứng minh:
 - Program / course / unit:
 - CLO/PLO cần chứng minh:
 - Ngày, giờ dự kiến / giờ thực tế:

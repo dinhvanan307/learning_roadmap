@@ -4,6 +4,16 @@
 
 **Vai trò:** giai đoạn chính theo mindmap. **Đầu vào:** Đọc được code Python cơ bản; nếu chưa có bài làm, bắt đầu bằng bài đối chiếu đầu vào.
 
+## Phạm vi kiến thức của Phase A
+
+- [A.1 · Python nền tảng](../../../../ROADMAP.md#a-1)
+- [A.2 · OOP và Advanced Python](../../../../ROADMAP.md#a-2)
+- [A.3 · Concurrency và Async Python](../../../../ROADMAP.md#a-3)
+- [A.4 · Môi trường, debugging và testing](../../../../ROADMAP.md#a-4)
+- [A.5 · Python Libraries for Data and AI](../../../../ROADMAP.md#a-5)
+
+Xem checklist topics, thực hành và độ sâu tại các liên kết trên. Hoàn thành toàn bộ phần bắt buộc và gate của phase; ghi bằng chứng trong [tracker từng phần](../../../../progress/PHASES.md).
+
 ## Program Learning Outcomes
 
 Sau chương trình, người học có thể:

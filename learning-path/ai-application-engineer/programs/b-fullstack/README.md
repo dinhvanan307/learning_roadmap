@@ -4,6 +4,16 @@
 
 **Vai trò:** giai đoạn chính theo mindmap. **Đầu vào:** A hoặc bài làm tương đương đã được review.
 
+## Phạm vi kiến thức của Phase B
+
+- [B.1 · Internet, Network và OS căn bản](../../../../ROADMAP.md#b-1)
+- [B.2 · Database, SQL, ORM và NoSQL](../../../../ROADMAP.md#b-2)
+- [B.3 · Backend và Web API với FastAPI](../../../../ROADMAP.md#b-3)
+- [B.4 · Ngôn ngữ và nền tảng Web](../../../../ROADMAP.md#b-4)
+- [B.5 · Frontend với React, Next.js và Tailwind CSS](../../../../ROADMAP.md#b-5)
+
+Xem checklist topics, thực hành và độ sâu tại các liên kết trên. Hoàn thành toàn bộ phần bắt buộc và gate của phase; ghi bằng chứng trong [tracker từng phần](../../../../progress/PHASES.md).
+
 ## Program Learning Outcomes
 
 Sau chương trình, người học có thể:

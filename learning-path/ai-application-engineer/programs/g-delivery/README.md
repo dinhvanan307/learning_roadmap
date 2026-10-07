@@ -4,6 +4,16 @@
 
 **Vai trò:** giai đoạn chính theo mindmap. **Đầu vào:** F có release candidate; Linux/process/network cơ bản được bắt đầu từ B.
 
+## Phạm vi kiến thức của Phase G
+
+- [G.1 · Linux và Containerization](../../../../ROADMAP.md#g-1)
+- [G.2 · Cloud và Infrastructure as Code](../../../../ROADMAP.md#g-2)
+- [G.3 · CI/CD, DevSecOps và phục hồi](../../../../ROADMAP.md#g-3)
+- [G.4 · Observability, SRE và reliability](../../../../ROADMAP.md#g-4)
+- [G.5 · LLMOps/MLOps và vận hành AI](../../../../ROADMAP.md#g-5)
+
+Xem checklist topics, thực hành và độ sâu tại các liên kết trên. Hoàn thành toàn bộ phần bắt buộc và gate của phase; ghi bằng chứng trong [tracker từng phần](../../../../progress/PHASES.md).
+
 ## Program Learning Outcomes
 
 Sau chương trình, người học có thể:

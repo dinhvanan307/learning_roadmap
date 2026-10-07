@@ -5,7 +5,8 @@
 | Cấp | Ý nghĩa trong repo | Ví dụ |
 | --- | --- | --- |
 | Learning path | Một hướng năng lực, gồm các chương trình và điều kiện đầu vào | AI Application Engineer |
-| Phase | Thứ tự hoặc mốc phát triển của lộ trình | Phase B |
+| Phase | Một khối kiến thức và năng lực trong thứ tự học A–G | Phase B · Web Development |
+| Phần kiến thức | Phạm vi nhỏ bên trong phase, có topics và bài thực hành | B.2 · Database, SQL, ORM và NoSQL |
 | Program | Nhóm course cùng tạo ra một năng lực/sản phẩm có thể review | Data và Full-stack Web |
 | Course | Một phạm vi học có CLO, units, đầu ra và đánh giá | Database và Data Modeling |
 | Unit | Một cụm bài học/thực hành đủ nhỏ để hoàn thành và nhận phản hồi | Transaction và ORM |
@@ -13,7 +14,9 @@
 | Running project | Bài tập tích hợp tiến hóa qua các course/program | Web dữ liệu → API/UI → AI → release |
 | Milestone | Phiên bản đầu ra cụ thể để kiểm tra | API lưu dữ liệu sau restart |
 
-Phase mô tả tiến trình; program mô tả chương trình học. Trong nhánh chính repo ánh xạ mỗi phase sang một program để dễ đọc, nhưng đây không phải quy tắc phổ quát.
+Phase là cách đọc lộ trình theo khối kiến thức; program/course/unit tổ chức outcomes và bài học. Trong nhánh chính, mỗi phase tương ứng một program. Có 29 phần kiến thức bên trong 7 phase, liên kết tới các course hiện có; một course có thể phục vụ nhiều phần. `A.1` là phần kiến thức, còn `A1` là mã course. Hai hệ này không được cộng số giờ hai lần.
+
+[ROADMAP](../ROADMAP.md) xác định nội dung và độ sâu; [PHASES](../progress/PHASES.md) ghi trạng thái/bằng chứng từng phần; [OUTCOMES](../progress/OUTCOMES.md) ghi kết luận CLO. Checkbox trong roadmap là phạm vi để đối chiếu, không dùng tính tiến độ riêng cạnh tracker.
 
 ## PLO và CLO
 
@@ -27,6 +30,7 @@ Outcome cần nêu hành động quan sát được, điều kiện và cách ki
 
 | Thành phần | Nội dung bắt buộc |
 | --- | --- |
+| Phase / phần kiến thức | Topics cụ thể, độ sâu, thực hành, course tương ứng, output và điều kiện hoàn thành |
 | Program | Mục tiêu/PLO, đầu vào, course, running project, gate |
 | Course | Đầu vào, CLO và PLO liên quan, units, output và cách đánh giá |
 | Unit | Topics/concepts, bài tập, output, tiêu chí kiểm tra, nguồn đúng phần |
@@ -41,7 +45,8 @@ Nguồn tài liệu hỗ trợ kiến thức; bài tập, giờ dự kiến và 
 - Bài làm cần tái lập được: có commit, môi trường, dữ liệu và lệnh.
 - Ghi rõ tự làm, tra tài liệu, được hướng dẫn hoặc AI viết; không suy ra ownership từ repo có code.
 - Chưa đạt thì ghi phần thiếu và việc sửa, không chuyển `VERIFIED` chỉ vì đủ giờ.
+- Phase chỉ hoàn thành khi mọi phần bắt buộc được review ở độ sâu đã ghi và đạt gate tích hợp; mục mở rộng chưa chọn không chặn hoàn thành.
 
 ## Cách thay đổi kế hoạch
 
-Sửa outcome hoặc gate trong program/course trước, rồi đồng bộ unit và tracker. Ghi lý do đổi phạm vi trong review. Tài liệu cũ nằm trong archive để đối chiếu, không dùng hai lịch làm nguồn tiến độ song song.
+Khi đổi phạm vi kiến thức, cập nhật ROADMAP rồi đồng bộ outcome/gate, unit và tracker liên quan. Khi chỉ sửa bài tập, giữ mapping tới phần kiến thức. Ghi lý do đổi phạm vi trong review. Tài liệu cũ nằm trong archive để đối chiếu, không dùng hai lịch làm nguồn tiến độ song song.

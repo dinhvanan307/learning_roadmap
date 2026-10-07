@@ -8,6 +8,8 @@ Người học có thể làm rõ một bài toán, xây luồng ứng dụng c�
 
 ## Danh mục chương trình và khóa học
 
+Bắt đầu từ [7 phase và 29 phần kiến thức](../../ROADMAP.md); bảng dưới là các course phục vụ những phần đó. Ví dụ A.1–A.4 cùng học qua course A1; A.5 học qua A2. Mã phần kiến thức và mã course không phải hai lộ trình khác nhau. Thực hành theo [tracker từng phần](../../progress/PHASES.md).
+
 | Program | Course | Đầu vào cụ thể | Giờ dự kiến |
 | --- | --- | --- | ---: |
 | [A · Python Programming for AI](programs/a-python/README.md) | [A1 · Python Programming và testing](programs/a-python/courses/python-programming/README.md) | Đối chiếu đầu vào Python. | 30–45 |
@@ -31,6 +33,6 @@ Người học có thể làm rõ một bài toán, xây luồng ứng dụng c�
 
 ## Một vòng học
 
-Course README → unit → nguồn đọc → bài làm → tests/report → milestone → review CLO/PLO. Nguồn đặt ở từng unit; ghi chú mới lưu trong thư mục `docs/` của course khi phát sinh. Không cần đọc tất cả tài liệu tham khảo trước khi làm bài đầu tiên.
+Phase → phần kiến thức → course → unit → nguồn đọc → bài làm → tests/report → milestone → review phần kiến thức và CLO/PLO. Nguồn đặt ở từng unit; ghi chú mới lưu trong thư mục `docs/` của course khi phát sinh. Không cần đọc tất cả tài liệu tham khảo trước khi làm bài đầu tiên.
 
 Theo dõi ở [tracker](../../PROGRESS.md) và [ma trận CLO](../../progress/OUTCOMES.md).

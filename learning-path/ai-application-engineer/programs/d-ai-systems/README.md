@@ -4,6 +4,16 @@
 
 **Vai trò:** giai đoạn chính theo mindmap. **Đầu vào:** B và C; thống kê đánh giá tối thiểu, vector/cosine được ôn trong D1.
 
+## Phạm vi kiến thức của Phase D
+
+- [D.1 · LLM Fundamentals và kiến trúc model](../../../../ROADMAP.md#d-1)
+- [D.2 · AI Application Architecture và LLM Integration](../../../../ROADMAP.md#d-2)
+- [D.3 · RAG System](../../../../ROADMAP.md#d-3)
+- [D.4 · Agent System, Tool và MCP](../../../../ROADMAP.md#d-4)
+- [D.5 · Đánh giá kỹ thuật và an toàn ứng dụng AI](../../../../ROADMAP.md#d-5)
+
+Xem checklist topics, thực hành và độ sâu tại các liên kết trên. Hoàn thành toàn bộ phần bắt buộc và gate của phase; ghi bằng chứng trong [tracker từng phần](../../../../progress/PHASES.md).
+
 ## Program Learning Outcomes
 
 Sau chương trình, người học có thể:

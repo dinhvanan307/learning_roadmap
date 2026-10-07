@@ -4,6 +4,14 @@
 
 **Vai trò:** giai đoạn chính theo mindmap. **Đầu vào:** D hoặc một prototype nhỏ đủ để kiểm giả thuyết; câu hỏi bài toán được ghi từ đầu A.
 
+## Phạm vi kiến thức của Phase E
+
+- [E.1 · Problem Framing và dữ liệu](../../../../ROADMAP.md#e-1)
+- [E.2 · Experimental Design](../../../../ROADMAP.md#e-2)
+- [E.3 · Phân tích kết quả và lựa chọn dự án](../../../../ROADMAP.md#e-3)
+
+Xem checklist topics, thực hành và độ sâu tại các liên kết trên. Hoàn thành toàn bộ phần bắt buộc và gate của phase; ghi bằng chứng trong [tracker từng phần](../../../../progress/PHASES.md).
+
 ## Program Learning Outcomes
 
 Sau chương trình, người học có thể:

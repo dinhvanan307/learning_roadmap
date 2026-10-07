@@ -2,6 +2,8 @@
 
 Dùng bài đã có nếu giải thích và chạy lại được. Bảng này tìm phần cần học; không phải bài thi xếp hạng nghề nghiệp. Chưa có kết quả ghi `UNKNOWN`, chưa chạy ghi `NOT_TESTED`.
 
+Đối chiếu thêm [29 phần kiến thức của Phase A–G](../ROADMAP.md) và ghi phần còn thiếu trong [tracker](../progress/PHASES.md). Bảng ngắn dưới đây là điểm bắt đầu, không đủ để xác nhận toàn bộ phase. Nếu chưa có nền Python, bắt đầu A.1; nếu chưa có HTML/CSS/JavaScript/TypeScript, học B.4 trước React/Next.js.
+
 | Nhóm kiến thức | Nội dung kiểm tra | Kết quả cần thể hiện | Hướng học khi còn thiếu |
 | --- | --- | --- | --- |
 | Python | Đọc list/dict, validate ID/giá, không sửa input | Hàm + expected và test cho ca rỗng/trùng/sai kiểu | A1 Unit 1 |

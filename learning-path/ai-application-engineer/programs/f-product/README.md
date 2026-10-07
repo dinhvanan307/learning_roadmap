@@ -4,6 +4,14 @@
 
 **Vai trò:** giai đoạn chính theo mindmap. **Đầu vào:** E đã chốt phạm vi; B–D có bằng chứng tương ứng với feature chọn.
 
+## Phạm vi kiến thức của Phase F
+
+- [F.1 · Software Design và kế hoạch sản phẩm](../../../../ROADMAP.md#f-1)
+- [F.2 · System Integration và kiểm thử sản phẩm](../../../../ROADMAP.md#f-2)
+- [F.3 · Product Review, tài liệu và Ownership](../../../../ROADMAP.md#f-3)
+
+Xem checklist topics, thực hành và độ sâu tại các liên kết trên. Hoàn thành toàn bộ phần bắt buộc và gate của phase; ghi bằng chứng trong [tracker từng phần](../../../../progress/PHASES.md).
+
 ## Program Learning Outcomes
 
 Sau chương trình, người học có thể:

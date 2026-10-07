@@ -14,6 +14,10 @@ Lộ trình chính: [A–G](ROADMAP.md). Bản khởi tạo lại cấu trúc ng
 
 `NOT_TESTED`/`UNKNOWN` mô tả giới hạn bằng chứng. `DIRECT`/`GUIDED`/`SELF_REPORTED` mô tả nguồn và mức hỗ trợ; không thay thế trạng thái. Tự review hoặc AI review phải ghi đúng loại, không nhận là mentor đã xác nhận.
 
+## Theo phần kiến thức trong phase
+
+Theo dõi **29 phần kiến thức A.1–G.5** tại [progress/PHASES.md](progress/PHASES.md), đối chiếu với [checklist kiến thức](ROADMAP.md). Mỗi phần có trạng thái, artifact/review và việc còn thiếu. Chỉ kết luận phase hoàn thành khi tất cả phần bắt buộc đạt, đủ CLO/PLO và gate tích hợp.
+
 ## Theo course
 
 | Course | Trạng thái | Ngày bắt đầu | Giờ thực tế | Bằng chứng / review |
@@ -37,7 +41,7 @@ Lộ trình chính: [A–G](ROADMAP.md). Bản khởi tạo lại cấu trúc ng
 | [DL1 · Neural Networks và PyTorch](learning-path/ai-application-engineer/programs/dl-foundations/courses/neural-networks/README.md) (mở rộng) | NOT_STARTED | — | — | — |
 | [DL2 · Computer Vision và Fine-tuning](learning-path/ai-application-engineer/programs/dl-foundations/courses/adaptation/README.md) (mở rộng) | NOT_STARTED | — | — | — |
 
-## Review chương trình
+## Review phase và chương trình
 
 | Program | Kết luận PLO / gate | Người review | Bằng chứng |
 | --- | --- | --- | --- |
@@ -58,4 +62,4 @@ Lộ trình chính: [A–G](ROADMAP.md). Bản khởi tạo lại cấu trúc ng
 - Ngày và ngân sách giờ: chưa chốt.
 - Output nhỏ cần nộp: file + test/report + phần giải thích.
 
-Sau mỗi buổi lưu [review](templates/REVIEW.md), cập nhật [CLO](progress/OUTCOMES.md), rồi sửa trạng thái course ở đây. Giờ thực tế là thời gian đã ghi nhận, không lấy giờ dự kiến nhân với số checkbox. Lịch tuần W0–W12 cũ chỉ còn trong [archive](archive/dashboard-v1/PROGRESS.md).
+Sau mỗi buổi lưu [review](templates/REVIEW.md), cập nhật [phần kiến thức](progress/PHASES.md) và [CLO](progress/OUTCOMES.md), rồi sửa trạng thái course ở đây. Giờ thực tế là thời gian đã ghi nhận, không lấy giờ dự kiến nhân với số checkbox. Lịch tuần W0–W12 cũ chỉ còn trong [archive](archive/dashboard-v1/PROGRESS.md).

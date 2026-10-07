@@ -19,7 +19,7 @@
 
 | Unit | Topics chính | Đầu ra |
 | --- | --- | --- |
-| [1. Scope và kế hoạch](units/01.md) | MVP; user flow; task breakdown; dependency; risk; ADR; DoD | Backlog và sơ đồ dependency. |
+| [1. Scope và kế hoạch](units/01.md) | MVP; user flow; task breakdown; dependency; risk; ADR; DoD; component/contract/data flow | Backlog, sơ đồ kiến trúc/dependency và ADR. |
 | [2. Tích hợp end-to-end](units/02.md) | contract test; E2E; authorization; validation; fallback; feature config | Demo, E2E report và artifact release candidate. |
 | [3. Review và bàn giao](units/03.md) | feedback; bug triage; regression; changelog; runbook; ownership | Case study ngắn, release note và README chạy lại. |
 

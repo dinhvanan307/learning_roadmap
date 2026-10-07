@@ -19,8 +19,8 @@
 
 | Unit | Topics chính | Đầu ra |
 | --- | --- | --- |
-| [1. Dữ liệu và contract](units/01.md) | list/dict/set; mutability; equality/identity; hàm; exception; type hint | Hàm, bảng input/expected và tests cho dữ liệu hợp lệ/lỗi. |
-| [2. Tổ chức code và tính năng Python](units/02.md) | module/package; scope/closure; iterator/generator; decorator; context manager; dataclass; composition | CLI, README chạy lại và commit refactor. |
+| [1. Dữ liệu và contract](units/01.md) | Kiểu dữ liệu; control flow; list/tuple/dict/set; mutability; hàm/scope; exception; type hint; file; môi trường | Hàm, bảng input/expected và tests cho dữ liệu hợp lệ/lỗi. |
+| [2. Tổ chức code và tính năng Python](units/02.md) | Class/object; inheritance/composition; module/package; scope/closure; iterator/generator; decorator; context manager; dataclass | CLI, README chạy lại và commit refactor. |
 | [3. Async và kiểm chứng](units/03.md) | coroutine/task; event loop; I/O-bound/CPU-bound; timeout; cancellation; concurrency limit | Timeline, tests và giải thích khi nào async không giúp. |
 
 ## Bài nộp và đánh giá

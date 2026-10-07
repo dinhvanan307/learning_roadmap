@@ -1,133 +1,80 @@
-# Mindmap của learning path
+# Mindmap theo Phase A–G
 
-Bản outline được chuẩn hóa từ các nhánh lộ trình và cấu trúc học trong [mindmap gốc](https://app.xmind.com/share/qQDQBpop?xid=59C374nV). Đây là nội dung Markdown trong repo; chưa chỉnh file trên Xmind.
+Giữ khung từ [mindmap gốc](https://app.xmind.com/share/qQDQBpop?xid=59C374nV), chia nhỏ nội dung để học và review. Đây là outline trong repo; chưa chỉnh file Xmind.
 
 ## Cấu trúc học
 
 ```mermaid
 flowchart TD
-  LP[Learning path] --> PG[Program]
+  LP[Learning path] --> PH[Phase]
+  PH --> K[Phần kiến thức]
+  K --> T[Topics và concept]
+  K -. học qua .-> C[Course]
+  LP --> PG[Program]
   PG --> PLO[Program Learning Outcomes]
-  PG --> C[Course]
+  PG --> C
   C --> CLO[Course Learning Outcomes]
   CLO -. đóng góp .-> PLO
-  C --> U[Unit]
-  U --> T[Topic và concept]
-  U --> E[Thực hành và bằng chứng]
-  PG --> RP[Running project]
-  RP --> M[Milestone và review]
+  C --> U[Unit và bài thực hành]
+  U --> E[Bằng chứng và review]
+  PH --> M[Output tích hợp của phase]
 ```
 
-## Outline theo giai đoạn
+## Outline kiến thức
 
-### A · Python Programming for AI
+### [Phase A · Programming Language — Python](../ROADMAP.md#phase-a)
 
-- [Python Programming và testing](../learning-path/ai-application-engineer/programs/a-python/courses/python-programming/README.md)
-  - Dữ liệu và contract: list/dict/set; mutability; equality/identity; hàm; exception; type hint.
-  - Tổ chức code và tính năng Python: module/package; scope/closure; iterator/generator; decorator; context manager; dataclass; composition.
-  - Async và kiểm chứng: coroutine/task; event loop; I/O-bound/CPU-bound; timeout; cancellation; concurrency limit.
-- [Python Libraries for Data and AI](../learning-path/ai-application-engineer/programs/a-python/courses/python-libraries/README.md)
-  - NumPy và phép tính: ndarray; shape/dtype; broadcasting; vectorization; view/copy.
-  - Pandas và chất lượng dữ liệu: DataFrame; missing values; groupby; merge; deduplication; schema.
-  - Biểu đồ và báo cáo: Matplotlib Figure/Axes; Seaborn distribution; aggregation; units; outlier.
-- Output program: CLI và báo cáo dữ liệu địa điểm: đọc CSV/JSON, valid/reject theo dòng, thống kê và biểu đồ.
+- [A.1 · Python nền tảng](../ROADMAP.md#a-1)
+- [A.2 · OOP và Advanced Python](../ROADMAP.md#a-2)
+- [A.3 · Concurrency và Async Python](../ROADMAP.md#a-3)
+- [A.4 · Môi trường, debugging và testing](../ROADMAP.md#a-4)
+- [A.5 · Python Libraries for Data and AI](../ROADMAP.md#a-5)
 
-### B · Data và Full-stack Web Development
+### [Phase B · Web Development — Database, Backend và Frontend](../ROADMAP.md#phase-b)
 
-- [Database và Data Modeling](../learning-path/ai-application-engineer/programs/b-fullstack/courses/database/README.md)
-  - SQL và mô hình dữ liệu: PK/FK; UNIQUE/CHECK/NOT NULL; normalization; JOIN; aggregate; NULL.
-  - Transaction và ORM: ACID; isolation; race condition; optimistic locking; migration; ORM session; N+1.
-  - Index và NoSQL: EXPLAIN; composite index; document/key-value; TTL; invalidation; cache-aside.
-- [Internet Basics và FastAPI](../learning-path/ai-application-engineer/programs/b-fullstack/courses/fastapi/README.md)
-  - HTTP và contract: DNS; TCP/TLS; port; process; HTTP methods/status; headers; REST; OpenAPI.
-  - Auth và persistence: authentication/authorization; session/token; object-level access; ORM; DI; idempotency.
-  - Giao tiếp và lỗi mạng: timeout; retry/backoff; connection pool; pagination; SSE/WebSocket; GraphQL schema.
-- [React, Next.js và Tailwind CSS](../learning-path/ai-application-engineer/programs/b-fullstack/courses/frontend/README.md)
-  - React và trạng thái: JavaScript modules; Promise; TypeScript; component; props/state; controlled form; keys.
-  - Next.js và API: routing/layout; Server/Client Components; data fetching; SSR/CSR; hydration; auth boundary.
-  - Trải nghiệm và Tailwind: utility class; responsive; semantic HTML; focus; loading/empty/error; accessibility.
-- Output program: Web quản lý địa điểm và lịch trình nháp với PostgreSQL, FastAPI, React/Next.js.
+- [B.1 · Internet, Network và OS căn bản](../ROADMAP.md#b-1)
+- [B.2 · Database, SQL, ORM và NoSQL](../ROADMAP.md#b-2)
+- [B.3 · Backend và Web API với FastAPI](../ROADMAP.md#b-3)
+- [B.4 · Ngôn ngữ và nền tảng Web](../ROADMAP.md#b-4)
+- [B.5 · Frontend với React, Next.js và Tailwind CSS](../ROADMAP.md#b-5)
 
-### C · AI trong quy trình phát triển phần mềm
+### [Phase C · AI-assisted Software Development](../ROADMAP.md#phase-c)
 
-- [Concept AI và làm việc với coding assistant](../learning-path/ai-application-engineer/programs/c-ai-sdlc/courses/ai-coding/README.md)
-  - Prompt và context: instruction; prompt; context window; example; retrieved context; context budget.
-  - Memory, skill và hook: persistent memory; reusable skill; tool; lifecycle hook; permission.
-  - Review và sửa code AI: diff review; test oracle; negative test; regression; provenance; human-in-the-loop.
-- [SDLC, Spec-driven Development và CI](../learning-path/ai-application-engineer/programs/c-ai-sdlc/courses/spec-driven/README.md)
-  - Yêu cầu và thiết kế: problem statement; user story; acceptance criteria; non-goal; ADR; dependency.
-  - Quy trình có AI: Spec-driven Development; AWS AI-DLC; backlog; Sprint Goal; Definition of Done.
-  - Git, CI và review: branch/commit/PR; code review; CI job/artifact; regression; release note.
-- Output program: Một thay đổi trên web được thực hiện từ spec đến review, với nhật ký đóng góp AI và kiểm chứng.
+- [C.1 · Concept khi làm việc với AI](../ROADMAP.md#c-1)
+- [C.2 · SDLC, Spec-driven Development và Agile](../ROADMAP.md#c-2)
+- [C.3 · Git workflow, code review và CI](../ROADMAP.md#c-3)
 
-### D · AI Application, RAG và Agent Systems
+### [Phase D · AI Application — LLM, RAG và Agent Systems](../ROADMAP.md#phase-d)
 
-- [LLM Architecture và Integration](../learning-path/ai-application-engineer/programs/d-ai-systems/courses/llm-integration/README.md)
-  - Model và biểu diễn: tokenization; vector/cosine; attention; Transformer; encoder; decoder; pretraining/inference.
-  - Provider adapter: prompt/messages; structured output; schema validation; timeout; fallback; rate limit.
-  - Đánh giá tích hợp: baseline; dev/test; exact match/rubric; p50/p95; token usage; cost; model version.
-- [Ingestion, Retrieval và RAG](../learning-path/ai-application-engineer/programs/d-ai-systems/courses/rag/README.md)
-  - Tài liệu thành record: parsing; OCR; vision; table extraction; metadata; provenance; incremental ingestion.
-  - Tìm kiếm có đánh giá: chunking/overlap; embedding; BM25; vector index; hybrid; RRF; top-k; reranker; ACL.
-  - Sinh câu trả lời và kiểm chứng: grounding; citation; supported claim; abstention; stale evidence; context budget; prompt injection.
-- [Agent Loop, Harness và MCP](../learning-path/ai-application-engineer/programs/d-ai-systems/courses/agents/README.md)
-  - Loop và harness: observe/decide/act; workflow vs agent; harness; tool schema; stop condition.
-  - State và hành động: state machine; checkpoint; resume; idempotency; HITL; least privilege; audit trail.
-  - MCP và đo hiệu quả: MCP host/client/server; tools/resources/prompts; auth boundary; protocol; task success.
-- Output program: Prototype hỏi đáp dữ liệu du lịch có nguồn, kèm agent chỉ đọc hoặc đề xuất thay đổi để người dùng duyệt.
+- [D.1 · LLM Fundamentals và kiến trúc model](../ROADMAP.md#d-1)
+- [D.2 · AI Application Architecture và LLM Integration](../ROADMAP.md#d-2)
+- [D.3 · RAG System](../ROADMAP.md#d-3)
+- [D.4 · Agent System, Tool và MCP](../ROADMAP.md#d-4)
+- [D.5 · Đánh giá kỹ thuật và an toàn ứng dụng AI](../ROADMAP.md#d-5)
 
-### E · Nghiên cứu và lựa chọn dự án
+### [Phase E · Nghiên cứu dự án và thiết kế thử nghiệm](../ROADMAP.md#phase-e)
 
-- [Problem Discovery và Experimental Design](../learning-path/ai-application-engineer/programs/e-research/courses/project-research/README.md)
-  - Bài toán và dữ liệu: user/task; current workflow; constraint; assumption; evidence; data rights.
-  - Thiết kế thử nghiệm: baseline; dataset split; leakage; controlled comparison; ablation; outcome metric.
-  - Ra quyết định: error taxonomy; latency/cost; failure cases; feasibility; go/revise/stop.
-- Output program: Project brief, evidence matrix và báo cáo thử nghiệm quyết định phạm vi sản phẩm.
+- [E.1 · Problem Framing và dữ liệu](../ROADMAP.md#e-1)
+- [E.2 · Experimental Design](../ROADMAP.md#e-2)
+- [E.3 · Phân tích kết quả và lựa chọn dự án](../ROADMAP.md#e-3)
 
-### F · Xây dựng sản phẩm và Ownership
+### [Phase F · Kiến trúc, tích hợp và xây dựng sản phẩm](../ROADMAP.md#phase-f)
 
-- [MVP Implementation và Product Review](../learning-path/ai-application-engineer/programs/f-product/courses/product-delivery/README.md)
-  - Scope và kế hoạch: MVP; user flow; task breakdown; dependency; risk; ADR; DoD.
-  - Tích hợp end-to-end: contract test; E2E; authorization; validation; fallback; feature config.
-  - Review và bàn giao: feedback; bug triage; regression; changelog; runbook; ownership.
-- Output program: MVP có một luồng hoàn chỉnh và bộ bài nộp gồm demo, tests, ADR, README.
+- [F.1 · Software Design và kế hoạch sản phẩm](../ROADMAP.md#f-1)
+- [F.2 · System Integration và kiểm thử sản phẩm](../ROADMAP.md#f-2)
+- [F.3 · Product Review, tài liệu và Ownership](../ROADMAP.md#f-3)
 
-### G · Deployment, DevOps và LLMOps
+### [Phase G · Deployment, DevOps và LLMOps](../ROADMAP.md#phase-g)
 
-- [Linux, Container, Cloud và CI/CD](../learning-path/ai-application-engineer/programs/g-delivery/courses/devops/README.md)
-  - Linux và container: shell/bash; process; permissions; env; DNS/port; image/container; volume/network; Compose.
-  - CI/CD và cloud: workflow; build artifact; immutable version; staging; secret; cloud compute/storage/IAM; IaC plan/state.
-  - Phục hồi và mở rộng: health/readiness; rollback; backup/restore; migration; Kubernetes; GitOps; drift.
-- [Observability, SRE và LLMOps](../learning-path/ai-application-engineer/programs/g-delivery/courses/llmops/README.md)
-  - Quan sát hệ thống: structured log; metric; trace/span; correlation ID; SLI/SLO; p95; error budget.
-  - LLMOps và MLOps: prompt/model/data version; eval regression; serving; drift; token/cost; hard budget; canary.
-  - Reliability và vận hành: retry/backoff; DLQ; idempotency; transactional outbox; reconciliation; incident; AIOps/ChatOps.
-- Output program: Bản release trên một môi trường được chọn, CI/CD, dashboard/report vận hành, backup/restore và runbook.
+- [G.1 · Linux và Containerization](../ROADMAP.md#g-1)
+- [G.2 · Cloud và Infrastructure as Code](../ROADMAP.md#g-2)
+- [G.3 · CI/CD, DevSecOps và phục hồi](../ROADMAP.md#g-3)
+- [G.4 · Observability, SRE và reliability](../ROADMAP.md#g-4)
+- [G.5 · LLMOps/MLOps và vận hành AI](../ROADMAP.md#g-5)
 
-### ML · Machine Learning Foundations — mở rộng
+## Nhánh mở rộng về model
 
-- [Math for Machine Learning](../learning-path/ai-application-engineer/programs/ml-foundations/courses/math/README.md)
-  - Đại số tuyến tính: vector; matrix; dot product; norm; cosine; projection.
-  - Xác suất và thống kê: mean/median; variance; distribution; conditional probability; sampling.
-  - Loss và tối ưu: objective; derivative; gradient descent; learning rate; convergence.
-- [Machine Learning và Evaluation](../learning-path/ai-application-engineer/programs/ml-foundations/courses/classical-ml/README.md)
-  - Dữ liệu và baseline: label; feature; split; leakage; preprocessing; baseline.
-  - Fit và chọn model: pipeline; fit/transform; linear/tree model; cross-validation; hyperparameter.
-  - Đóng gói và giải thích: confusion matrix; threshold; error analysis; model card; inference contract.
-- Output program: Mô hình phân loại dữ liệu mẫu công khai hoặc tổng hợp, kèm model card và evaluation.
+- [Machine Learning Foundations](../learning-path/ai-application-engineer/programs/ml-foundations/README.md): đại số tuyến tính, xác suất/thống kê, loss/tối ưu, dữ liệu/feature/label, model, split và evaluation.
+- [Deep Learning và Model Adaptation](../learning-path/ai-application-engineer/programs/dl-foundations/README.md): tensor/autograd, neural network, training loop, regularization, computer vision, transfer learning và fine-tuning.
 
-### DL · Deep Learning và Model Adaptation — mở rộng
-
-- [Neural Networks và PyTorch](../learning-path/ai-application-engineer/programs/dl-foundations/courses/neural-networks/README.md)
-  - Tensor và autograd: tensor/device; computation graph; backward; gradient; optimizer.
-  - Training loop: Dataset/DataLoader; batch/epoch; loss; train/eval mode; checkpoint.
-  - Generalization: overfitting; regularization; dropout; augmentation; early stopping.
-- [Computer Vision và Fine-tuning](../learning-path/ai-application-engineer/programs/dl-foundations/courses/adaptation/README.md)
-  - Chọn cách thích nghi: pretrained; frozen backbone; classifier head; transfer learning; data quality.
-  - Thử nghiệm có giới hạn: fine-tuning; learning rate; batch size; compute budget; adapter/LoRA ở mức nhận biết.
-  - Inference và bàn giao: export/checkpoint; batching; quantization; distillation; model card; license.
-- Output program: Thử nghiệm nhận diện ảnh nhỏ hoặc thích nghi model cho dữ liệu mẫu, kèm benchmark và model card.
-
-## Cách dùng
-
-Dùng outline này để review cấu trúc hoặc làm nội dung tạo mindmap mới. Không coi đây là file `.xmind` đã import/render thành công. Nội dung chi tiết và tiến độ chính vẫn ở Markdown.
+[Checklist đầy đủ](../ROADMAP.md) · [Danh mục concept](CONCEPTS.md) · [Bài tập/course/unit](../learning-path/ai-application-engineer/README.md) · [Tiến độ từng phần](../progress/PHASES.md)

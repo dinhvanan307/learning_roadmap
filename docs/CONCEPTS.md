@@ -2,6 +2,8 @@
 
 Danh mục chọn các concept hay gặp khi xây ứng dụng Python/Web/AI. Mỗi mục có nghĩa ngắn, tình huống dùng và câu hỏi tự kiểm; không biến tên framework thành bằng chứng đã biết nền tảng.
 
+Học theo [phase và checklist kiến thức](../ROADMAP.md), dùng trang này để tra nghĩa. Các nhóm concept phục vụ nhiều phase nên không nhất thiết trùng với 29 phần kiến thức. Mục `AWARENESS` chỉ cần đạt độ sâu nhận biết đã ghi; `OPTIONAL` là phần mở rộng. Ghi kết quả trong [tracker](../progress/PHASES.md).
+
 ## Mức độ học
 
 | Mức | Cần thể hiện |
