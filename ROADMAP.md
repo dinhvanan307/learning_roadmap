@@ -4,8 +4,6 @@
 
 **Cách đọc:** Phase → phần kiến thức → topics/concepts → bài thực hành → output → review. Các mục bên dưới xác định phạm vi cần nắm; tên framework chỉ là công cụ áp dụng. `A.1` là phần kiến thức trong Phase A; `A1` là mã course có đề bài và nguồn đọc, không phải hai phase khác nhau.
 
-**Ôn nền trước khi học sâu:** [14 bài Python/OOP → AI cơ bản](lessons/quick-review/README.md). Có thể đọc AI nhập môn sau lượt ôn Python mà chưa hoàn thành Web; đầu vào của các bài triển khai Phase D vẫn giữ như bên dưới.
-
 ## Tổng quan
 
 | Phase | Khối kiến thức | Các phần bên trong | Giờ tham chiếu |
