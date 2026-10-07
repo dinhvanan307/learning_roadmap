@@ -4,6 +4,8 @@
 
 **Đầu vào:** Đối chiếu đầu vào Python.
 
+**Ôn nhanh trước course:** [8 bài Python/OOP có giải thích và ví dụ](../../../../../../lessons/quick-review/README.md). Đọc lướt, tự kiểm rồi quay lại các unit dưới đây để thực hành sâu.
+
 **Khối lượng:** 30–45 giờ dự kiến, gồm thực hành và review. Học theo năng lực đầu vào; người đã có artifact tương đương có thể xin review để rút phần ôn.
 
 ## Course Learning Outcomes

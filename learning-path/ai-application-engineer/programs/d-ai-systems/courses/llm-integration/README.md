@@ -4,6 +4,8 @@
 
 **Đầu vào:** API, async và kiểm thử; ôn vector/xác suất nếu cần.
 
+**Nhập môn trước course:** [6 bài AI cơ bản](../../../../../../lessons/quick-review/ai/01-ai-map.md), đi từ AI/ML và evaluation đến LLM, context, RAG và agent. Phần đọc nhập môn không yêu cầu hoàn thành backend; course triển khai này vẫn cần đầu vào nêu trên.
+
 **Khối lượng:** 25–40 giờ dự kiến, gồm thực hành và review. Học theo năng lực đầu vào; người đã có artifact tương đương có thể xin review để rút phần ôn.
 
 ## Course Learning Outcomes

@@ -4,6 +4,8 @@ Lộ trình học theo **7 Phase A–G của mindmap**, chia thành **29 phần 
 
 ## Bắt đầu ở đâu
 
+**Muốn ôn lại trước:** mở [14 bài Python/OOP → AI cơ bản](lessons/quick-review/README.md), hoặc lướt [bản ôn nhanh 15–20 phút](lessons/quick-review/CHEATSHEET.md). Có giải thích, ví dụ chạy được, câu hỏi/đáp án và bài tập nhỏ.
+
 | Bạn cần | Mở tài liệu |
 | --- | --- |
 | Xem từng phase gồm những kiến thức gì | [Roadmap A–G và checklist chi tiết](ROADMAP.md) |
@@ -47,6 +49,7 @@ learning-path/ai-application-engineer/
       docs/                       # tạo khi có ghi chú/bài làm thực tế
     running-project/README.md     # milestone và nghiệm thu
 concepts/                         # giải nghĩa, cách dùng, tự kiểm
+lessons/quick-review/              # 8 bài Python/OOP + 6 bài AI nhập môn
 projects/                         # dự án xuyên suốt và các mốc
 progress/                         # tracker từng phần, ma trận CLO và review
 templates/                        # mẫu unit, course, review
