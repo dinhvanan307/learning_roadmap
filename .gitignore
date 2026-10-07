@@ -31,3 +31,5 @@ build/
 .coverage
 htmlcov/
 evidence/private/
+progress/private/
+resources/private/

@@ -1,42 +1,65 @@
-# Learning roadmap
+# AI Application Engineer Learning Roadmap
 
-Roadmap học **AI Application Engineer**, dùng để biết cần học gì, làm ra sản phẩm nào và kiểm chứng tiến độ bằng bài làm thực tế. Nội dung chính là Markdown; Git lưu lại thay đổi của kế hoạch, bài nộp và phản hồi.
+Lộ trình học **Python → Web → phát triển phần mềm có AI → RAG/Agent → nghiên cứu dự án → sản phẩm → triển khai**, tổ chức theo mindmap và góp ý mentor. Mỗi chương trình có mục tiêu học tập, bài thực hành, mốc sản phẩm và cách kiểm chứng.
 
-## Bắt đầu
+## Bắt đầu ở đâu
 
-1. Đọc [roadmap tổng quan](ROADMAP.md) để xem các giai đoạn, thời lượng và đầu ra.
-2. Mở [W0 — Kiến thức đầu vào](weeks/W00.md); đối chiếu bài làm đã có trước khi quyết định học mới hay ôn lại.
-3. Chọn tuần đang học trong [bảng tiến độ](PROGRESS.md), chuyển sang `IN_PROGRESS` và ghi ngày bắt đầu.
-4. Làm checklist của tuần, lưu code/report hoặc liên kết tới repo bài tập; dùng [mẫu nhật ký](templates/WEEKLY_REVIEW.md) để ghi kết quả thật.
-5. Review tiêu chí hoàn thành và cập nhật tiến độ. Chỉ chuyển sang `VERIFIED` khi có bằng chứng và ghi rõ người review.
-
-## Nội dung repo
-
-| Đường dẫn | Dùng để làm gì |
+| Bạn cần | Mở tài liệu |
 | --- | --- |
-| [ROADMAP.md](ROADMAP.md) | Các giai đoạn, thứ tự học, đầu ra và hai cách phân bổ lịch |
-| [weeks/](weeks/) | 13 file từ W0 đến W12, gồm 116 hạng mục học và thực hành |
-| [PROGRESS.md](PROGRESS.md) | Trạng thái từng tuần, giờ thực tế, bằng chứng và bước tiếp theo |
-| [COMPETENCIES.md](COMPETENCIES.md) | 8 nhóm năng lực và tiêu chí tham chiếu để review |
-| [templates/WEEKLY_REVIEW.md](templates/WEEKLY_REVIEW.md) | Mẫu ghi bài làm, kiểm chứng, mức hỗ trợ và phản hồi |
-| [evidence/](evidence/README.md) | Nơi lưu nhật ký, báo cáo và liên kết tới code/bài nộp |
-| [docs/SOURCE.md](docs/SOURCE.md) | Nguồn nội dung, cách chuyển đổi và các giới hạn của kế hoạch |
-| [Dashboard HTML gốc](AI-Application-Roadmap-Dashboard.html) | Bản tham khảo trước khi chuyển thành repo Markdown |
+| Xem học gì, theo thứ tự nào | [Roadmap A–G](ROADMAP.md) |
+| Hiểu cách chia program, course, unit, PLO/CLO | [Cấu trúc chương trình](docs/FORMAT.md) |
+| Học và tra các concept thường gặp | [Danh mục concept](docs/CONCEPTS.md) |
+| Xem bài tập và nguồn cho từng course | [Learning path](learning-path/ai-application-engineer/README.md) |
+| Biết mỗi giai đoạn làm ra gì | [Running project](projects/RUNNING_PROJECT.md) |
+| Ghi tiến độ, bài nộp và phản hồi | [Progress tracker](PROGRESS.md) |
+| Xem sơ đồ và outline của lộ trình | [Mindmap Markdown](docs/MINDMAP.md) |
 
-## Cách dùng
+**Bước đầu:** làm [đối chiếu đầu vào](docs/ENTRY_REVIEW.md), chọn một unit cần học, làm bài rồi lưu review. Nếu đã có artifact đáp ứng yêu cầu, dùng artifact đó để review thay vì học lại theo lịch máy móc.
 
-Đọc trực tiếp trên GitHub hoặc mở thư mục bằng trình soạn thảo. Không cần cài dependency để sử dụng roadmap. Code lab có thể đặt trong repo riêng; ghi đường dẫn và commit tương ứng vào bằng chứng của tuần.
+## Các giai đoạn
 
-Một thay đổi học tập nên có phạm vi nhỏ: cập nhật checklist, nhật ký kết quả và dòng tiến độ của cùng một tuần rồi tạo commit. Ví dụ: `docs: record W0 API exercise and review`.
+| Phase | Trọng tâm | Output để review |
+| --- | --- | --- |
+| A | Python Programming và Libraries | CLI, bộ test, báo cáo dữ liệu |
+| B | Database, FastAPI, React/Next.js | Web có luồng UI → API → DB |
+| C | AI-assisted SDLC | Feature từ spec đến review, ghi rõ đóng góp AI |
+| D | LLM, RAG và Agent Systems | Prototype có nguồn, quyền, eval và giới hạn tool |
+| E | Nghiên cứu dự án | Problem brief, thử nghiệm và quyết định phạm vi |
+| F | Xây dựng sản phẩm | MVP có luồng hoàn chỉnh, demo và regression tests |
+| G | Deployment và LLMOps | Release, quan sát hệ thống, rollback/restore và runbook |
 
-Markdown là bản được cập nhật từ thời điểm tạo repo. Dashboard giữ nguyên để tham khảo, không tự đồng bộ với Markdown; trạng thái tick trong dashboard cũng không tự cập nhật bảng tiến độ.
+Nhánh **Machine Learning / Deep Learning** có chương trình riêng khi cần đi sâu mô hình. Các nền tảng vector, metric và đánh giá cần cho AI Application vẫn nằm trong nhánh chính.
 
-## Nguyên tắc học
+## Cách tổ chức repo
 
-- Mỗi tuần có bài thực hành hoặc artifact có thể kiểm tra; chỉ đọc tài liệu chưa đủ để xác nhận hoàn thành.
-- Hiểu cách triển khai trực tiếp trước khi thêm framework; đo kết quả trước khi tối ưu.
-- Ghi riêng thời gian dự kiến và giờ thực tế. Chưa đạt tiêu chí thì bổ sung bài làm hoặc điều chỉnh lịch.
-- Ghi rõ phần tự làm, phần được hướng dẫn và phần AI hỗ trợ. Có code chưa đồng nghĩa với đã chạy hoặc tự làm chủ.
-- Các mốc tuần và mức năng lực là khung để review; hoàn thành checklist không tự xác nhận cấp bậc Middle/Senior.
+```text
+README.md / ROADMAP.md / PROGRESS.md
+learning-path/ai-application-engineer/
+  README.md
+  programs/<program>/
+    README.md                     # PLO, đầu vào, courses, gate
+    courses/<course>/
+      README.md                   # CLO, units, bài nộp
+      units/01.md, 02.md, 03.md    # topics, bài tập, output, nguồn
+      docs/                       # tạo khi có ghi chú/bài làm thực tế
+    running-project/README.md     # milestone và nghiệm thu
+concepts/                         # giải nghĩa, cách dùng, tự kiểm
+projects/                         # dự án xuyên suốt và các mốc
+progress/                         # ma trận CLO và nhật ký review
+templates/                        # mẫu unit, course, review
+resources/                        # dữ liệu mẫu/manifest do người học bổ sung
+archive/dashboard-v1/             # bản W0–W12 nguyên trạng
+```
 
-Roadmap bắt đầu từ nội dung dashboard hiện có. Việc đưa tài liệu vào Git không xác nhận người học đã hoàn thành các mục đó.
+**9 programs · 18 courses · 54 units.** Trong đó 7 programs/14 courses thuộc nhánh chính; 2 programs/4 courses ML/DL là mở rộng. Các file là kế hoạch và đề bài; bài làm, kết quả chạy và năng lực đã đạt được ghi riêng trong tracker.
+
+## Cách học và review
+
+1. Đọc đúng phần nguồn gắn với unit; giải thích concept bằng ví dụ nhỏ.
+2. Làm bài và kiểm ca hợp lệ, biên, lỗi; lưu file/repo và commit.
+3. Demo milestone, giải thích code kể cả phần AI viết, xử lý một biến thể mới.
+4. Ghi phản hồi, giờ thực tế và việc tiếp theo theo [mẫu review](templates/REVIEW.md).
+
+Chuẩn bị một buổi review mỗi tuần theo gợi ý mindmap; ngày/giờ cụ thể cần tự sắp xếp. Kết quả có thể là tiếp tục, bổ sung hoặc đổi phạm vi. Hoàn thành tài liệu hoặc tick checkbox không tự xác nhận cấp bậc nghề nghiệp.
+
+[Đối chiếu mindmap](docs/SOURCE.md) · [Nguồn học chính thức](docs/RESOURCES.md) · [Bản cũ](archive/dashboard-v1/README.md)
