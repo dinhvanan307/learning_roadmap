@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Application Roadmap — Foundation → Middle</title>
+<style>
+:root{
+  --bg:#0d1117; --panel:#161b22; --panel2:#1c2333; --line:#2a3038;
+  --tx:#e6edf3; --tx2:#8b949e; --tx3:#6e7681;
+  --acc:#4c8dff; --ok:#3fb950; --warn:#d29922; --bad:#f85149; --purple:#a371f7;
+  --p0:#6e7681; --p1:#3fb950; --p2:#4c8dff; --p3:#d29922; --p4:#f0883e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;padding:0 0 60px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+header{background:linear-gradient(135deg,#161b22,#0d1117);border-bottom:1px solid var(--line);padding:26px 0 22px;margin-bottom:22px}
+h1{font-size:22px;font-weight:700;letter-spacing:-.3px}
+.sub{color:var(--tx2);font-size:13px;margin-top:4px}
+.badge{display:inline-block;background:rgba(76,141,255,.15);color:var(--acc);border:1px solid rgba(76,141,255,.3);
+       border-radius:20px;padding:2px 11px;font-size:11px;font-weight:600;margin-left:8px;vertical-align:middle}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0 6px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi .lab{color:var(--tx2);font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:600}
+.kpi .val{font-size:24px;font-weight:700;margin-top:5px;font-variant-numeric:tabular-nums}
+.kpi .sub2{color:var(--tx3);font-size:11px;margin-top:2px}
+
+.bar{height:8px;background:#21262d;border-radius:5px;overflow:hidden;margin-top:9px}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--ok),#56d364);border-radius:5px;transition:width .35s ease}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0 16px;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.tog{display:flex;background:#0d1117;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.tog button{background:none;border:none;color:var(--tx2);padding:7px 15px;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer}
+.tog button.on{background:var(--acc);color:#fff}
+select,input[type=text]{background:#0d1117;border:1px solid var(--line);color:var(--tx);border-radius:8px;
+  padding:7px 10px;font:inherit;font-size:12.5px}
+.btn{background:#21262d;border:1px solid var(--line);color:var(--tx);border-radius:8px;padding:7px 13px;
+  font:inherit;font-size:12.5px;font-weight:600;cursor:pointer}
+.btn:hover{background:#2d333b}
+.spacer{flex:1}
+
+h2.sec{font-size:15px;font-weight:700;margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:9px}
+h2.sec span.n{color:var(--tx3);font-weight:500;font-size:12.5px}
+
+.wk{background:var(--panel);border:1px solid var(--line);border-radius:11px;margin-bottom:10px;overflow:hidden}
+.wk.dim{opacity:.4}
+.wkh{display:flex;align-items:center;gap:13px;padding:14px 16px;cursor:pointer;user-select:none}
+.wkh:hover{background:var(--panel2)}
+.chip{font-size:11px;font-weight:800;padding:4px 9px;border-radius:6px;min-width:44px;text-align:center;letter-spacing:.4px}
+.wkt{font-weight:650;font-size:14.5px;flex:1}
+.wkm{color:var(--tx3);font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ring{width:38px;height:38px;flex-shrink:0}
+.caret{color:var(--tx3);transition:transform .2s;font-size:11px}
+.wk.open .caret{transform:rotate(90deg)}
+.wkb{display:none;border-top:1px solid var(--line);padding:6px 16px 14px}
+.wk.open .wkb{display:block}
+
+.exit{background:rgba(210,153,34,.1);border-left:3px solid var(--warn);border-radius:0 7px 7px 0;
+  padding:9px 13px;margin:11px 0 13px;font-size:12.5px;color:#e3b341}
+.exit b{color:var(--warn);font-weight:700}
+.fnote{background:rgba(163,113,247,.1);border-left:3px solid var(--purple);border-radius:0 7px 7px 0;
+  padding:8px 13px;margin:0 0 12px;font-size:12.5px;color:#c9a4ff}
+
+.it{display:flex;align-items:flex-start;gap:11px;padding:8px 4px;border-bottom:1px solid #21262d}
+.it:last-child{border-bottom:none}
+.it input{margin-top:3px;width:16px;height:16px;accent-color:var(--ok);cursor:pointer;flex-shrink:0}
+.it label{flex:1;cursor:pointer;font-size:13.3px}
+.it.done label{color:var(--tx3);text-decoration:line-through}
+.code{color:var(--tx3);font-size:11.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-right:7px}
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;margin-left:8px;white-space:nowrap;letter-spacing:.3px}
+.t-Lythuyet{background:rgba(139,148,158,.18);color:#a9b1ba}
+.t-Lab{background:rgba(76,141,255,.18);color:#79b0ff}
+.t-Project{background:rgba(63,185,80,.18);color:#56d364}
+.t-Capstone{background:rgba(240,136,62,.2);color:#f0883e}
+.t-Deliverable{background:rgba(210,153,34,.18);color:#e3b341}
+.t-Brand{background:rgba(163,113,247,.18);color:#c9a4ff}
+.t-Nentang{background:rgba(110,118,129,.18);color:#8b949e}
+.hrs{color:var(--tx3);font-size:11.5px;white-space:nowrap;font-variant-numeric:tabular-nums;margin-left:6px}
+
+table.mx{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:11px;overflow:hidden;font-size:12.6px}
+table.mx th{background:var(--panel2);padding:10px 11px;text-align:left;font-size:11px;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--tx2);border-bottom:1px solid var(--line);font-weight:700}
+table.mx td{padding:11px;border-bottom:1px solid #21262d;vertical-align:top}
+table.mx tr:last-child td{border-bottom:none}
+td.l2{background:rgba(76,141,255,.07)}
+.req{display:inline-block;background:rgba(248,81,73,.18);color:#ff7b72;font-size:9.5px;font-weight:800;
+  padding:2px 6px;border-radius:4px;margin-left:6px;letter-spacing:.4px;vertical-align:middle}
+.score{display:flex;gap:4px}
+.score button{width:26px;height:26px;border-radius:6px;border:1px solid var(--line);background:#0d1117;
+  color:var(--tx2);font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.score button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.score button.on.l2p{background:var(--ok);border-color:var(--ok)}
+.verdict{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+.verdict .big{font-size:19px;font-weight:800;margin-top:5px}
+
+footer{margin-top:34px;color:var(--tx3);font-size:11.5px;text-align:center;line-height:1.9}
+dialog{background:var(--panel);color:var(--tx);border:1px solid var(--line);border-radius:12px;padding:20px;max-width:560px;width:92%}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+textarea{width:100%;height:150px;background:#0d1117;border:1px solid var(--line);color:var(--tx);
+  border-radius:8px;padding:10px;font:12px ui-monospace,Menlo,monospace;resize:vertical;margin:10px 0}
+@media(max-width:640px){.wkm{display:none}h1{font-size:18px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>AI Application Engineer — Study Roadmap<span class="badge">Foundation → Middle</span></h1>
+  <div class="sub">Nhánh 1 · Dual-track · Chuẩn ra: tự chủ thiết kế, build, <b>đánh giá</b> và <b>vận hành</b> AI Application/Agent System ở production</div>
+  <div class="kpis" id="kpis"></div>
+  <div class="bar"><i id="mainbar" style="width:0%"></i></div>
+</div></header>
+
+<div class="wrap">
+  <div class="toolbar">
+    <div class="tog" id="trackTog">
+      <button data-t="full" class="on">Full-track · W0 + 12 tuần</button>
+      <button data-t="fast">Fast-track · 8 tuần</button>
+    </div>
+    <select id="fPhase"><option value="">Tất cả phase</option></select>
+    <select id="fType"><option value="">Tất cả loại</option></select>
+    <select id="fState">
+      <option value="">Tất cả trạng thái</option>
+      <option value="todo">Chưa xong</option>
+      <option value="done">Đã xong</option>
+    </select>
+    <div class="spacer"></div>
+    <button class="btn" id="expandAll">Mở/Đóng tất cả</button>
+    <button class="btn" id="saveBtn">Lưu tiến độ</button>
+  </div>
+
+  <h2 class="sec">Lộ trình theo tuần <span class="n" id="wkCount"></span></h2>
+  <div id="weeks"></div>
+
+  <h2 class="sec">Competency Matrix <span class="n">Đạt Middle = ≥ L2 ở ≥ 6/8 domain · D3, D5, D7 bắt buộc</span></h2>
+  <table class="mx">
+    <thead><tr><th style="width:20%">Domain</th><th style="width:22%">L1 — Junior</th>
+    <th style="width:33%">L2 — Middle (mục tiêu)</th><th style="width:14%">L3 — Senior</th><th style="width:11%">Tự chấm</th></tr></thead>
+    <tbody id="mxBody"></tbody>
+  </table>
+  <div class="verdict">
+    <div style="color:var(--tx2);font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700">Xếp loại hiện tại</div>
+    <div class="big" id="verdict">Chưa chấm</div>
+    <div style="color:var(--tx3);font-size:12.5px;margin-top:6px" id="verdictSub"></div>
+  </div>
+
+  <footer>
+    <b>4 quy tắc bất di bất dịch:</b> ① Không có tuần chỉ đọc — mỗi tuần phải có artifact chạy được ·
+    ② Raw trước, framework sau · ③ Đo trước khi tối ưu · ④ Không đạt Exit criteria → dừng, thêm tuần đệm<br>
+    v1.0 · 08/2026 — rà lại danh sách model &amp; framework mỗi quý
+  </footer>
+</div>
+
+<dialog id="dlg">
+  <div style="font-weight:700;font-size:15px;margin-bottom:6px">Lưu / khôi phục tiến độ</div>
+  <div style="color:var(--tx2);font-size:12.5px">Copy đoạn mã dưới để lưu lại. Lần sau dán vào đây và bấm <b>Khôi phục</b>.</div>
+  <textarea id="dlgTa"></textarea>
+  <div style="display:flex;gap:8px;justify-content:flex-end">
+    <button class="btn" id="dlgLoad">Khôi phục</button>
+    <button class="btn" id="dlgClose">Đóng</button>
+  </div>
+</dialog>
+
+<script>
+const DATA = {"items": [{"phase": "P0 · Prerequisites", "week": "W0", "code": "0.1", "item": "Python 3.12+: type hints, async/await, pydantic, uv", "type": "Nền tảng", "h": 4}, {"phase": "P0 · Prerequisites", "week": "W0", "code": "0.2", "item": "HTTP/REST/JSON/SSE/Auth — FastAPI CRUD + endpoint SSE", "type": "Nền tảng", "h": 5}, {"phase": "P0 · Prerequisites", "week": "W0", "code": "0.3", "item": "SQL: JOIN, index, transaction — schema 3 bảng", "type": "Nền tảng", "h": 4}, {"phase": "P0 · Prerequisites", "week": "W0", "code": "0.4", "item": "Git, Docker, docker-compose, CI cơ bản", "type": "Nền tảng", "h": 4}, {"phase": "P0 · Prerequisites", "week": "W0", "code": "0.5", "item": "Toán tối thiểu: vector, cosine similarity, xác suất cơ bản", "type": "Nền tảng", "h": 3}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.0", "item": "LT: Transformer/context/KV-cache ở mức debug được", "type": "Lý thuyết", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.0b", "item": "LT: Tokenizer, BPE, chi phí token tiếng Việt", "type": "Lý thuyết", "h": 1}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.0c", "item": "LT: Inference params, reasoning vs standard, structured output", "type": "Lý thuyết", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.0d", "item": "LT: Prompt caching, batch API, model routing", "type": "Lý thuyết", "h": 1}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.1", "item": "Lab: Tokenizer lab — đo chênh lệch token VI vs EN, quy ra tiền", "type": "Lab", "h": 3}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.2", "item": "Lab: Provider abstraction — 3 provider, stream + structured + tools", "type": "Lab", "h": 5}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.3", "item": "Lab: Benchmark harness cá nhân — 20 task × 5 model", "type": "Lab", "h": 4}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.4", "item": "Lab: Prompt caching — đo cost trước/sau", "type": "Lab", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W1", "code": "1.D", "item": "Deliverable: model-selection-matrix.md + repo llm-provider-kit", "type": "Deliverable", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.0", "item": "LT: Cấu trúc system prompt production + guardrail", "type": "Lý thuyết", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.0b", "item": "LT: CoT, self-consistency, decomposition, ReAct", "type": "Lý thuyết", "h": 1}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.0c", "item": "LT: Context Engineering — budgeting, compaction, memory, tool shaping", "type": "Lý thuyết", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.0d", "item": "LT: Prompt versioning & chống injection ở tầng prompt", "type": "Lý thuyết", "h": 1}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.1", "item": "Lab: Prompt versioning system", "type": "Lab", "h": 3}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.2", "item": "Lab: A/B 3 prompt × 30 input + LLM-as-judge có calibrate", "type": "Lab", "h": 5}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.3", "item": "Lab: Context budgeting — 3 chiến lược cắt, hội thoại 50 lượt", "type": "Lab", "h": 4}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.4", "item": "Lab: Injection red-team 15 payload, đo bypass trước/sau", "type": "Lab", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W2", "code": "2.D", "item": "Deliverable: prompt-kit + báo cáo A/B có số liệu", "type": "Deliverable", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.0", "item": "LT: Layered architecture, streaming, async/queue, state, multi-tenant", "type": "Lý thuyết", "h": 5}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.1", "item": "P1: FastAPI /chat streaming SSE + hủy giữa chừng", "type": "Project", "h": 3}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.2", "item": "P1: Tích hợp provider abstraction — đổi model bằng config", "type": "Project", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.3", "item": "P1: Conversation persistence (Postgres) + context compaction", "type": "Project", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.4", "item": "P1: Retry + fallback model khi provider lỗi", "type": "Project", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.5", "item": "P1: Rate limit per user + cost tracking per request", "type": "Project", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.6", "item": "P1: Next.js chat UI có streaming", "type": "Project", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.7", "item": "P1: Docker compose 1 lệnh + README + load test 100 req", "type": "Project", "h": 2}, {"phase": "P1 · Nền tảng", "week": "W3", "code": "3.B", "item": "📣 Brand: bài/video 'Kiến trúc AI Chat Service production'", "type": "Brand", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W4", "code": "4.0", "item": "LT: Embedding, distance metrics, chọn embedding model đa ngữ", "type": "Lý thuyết", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W4", "code": "4.0b", "item": "LT: Vector DB landscape, HNSW/IVF, tham số ef/m", "type": "Lý thuyết", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W4", "code": "4.0c", "item": "LT: Chunking strategies + metadata filtering", "type": "Lý thuyết", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W4", "code": "4.1", "item": "Lab: Naive RAG viết tay, KHÔNG framework (~200 dòng)", "type": "Lab", "h": 5}, {"phase": "P2 · Data & Knowledge", "week": "W4", "code": "4.2", "item": "Lab: Chunking bake-off — 5 chiến lược, recall@5 trên 30 câu", "type": "Lab", "h": 4}, {"phase": "P2 · Data & Knowledge", "week": "W4", "code": "4.3", "item": "Lab: Embedding bake-off — 3 model, recall/cost/latency", "type": "Lab", "h": 3}, {"phase": "P2 · Data & Knowledge", "week": "W4", "code": "4.4", "item": "Lab: Index tuning — recall vs latency theo ef_search", "type": "Lab", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W4", "code": "4.D", "item": "Deliverable: rag-lab + retrieval-benchmark.md", "type": "Deliverable", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.0", "item": "LT: Hybrid search BM25 + vector + RRF", "type": "Lý thuyết", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.0b", "item": "LT: Reranking cross-encoder + query transformation (HyDE, multi-query)", "type": "Lý thuyết", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.0c", "item": "LT: 7 failure mode của RAG + citation + ingestion pipeline", "type": "Lý thuyết", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.1", "item": "Lab: Hybrid + RRF — đo delta recall", "type": "Lab", "h": 3}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.2", "item": "Lab: Reranker — đo delta precision@5 và latency", "type": "Lab", "h": 3}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.3", "item": "Lab: Query rewriting (multi-query + HyDE)", "type": "Lab", "h": 3}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.4", "item": "Lab: Bảng chẩn đoán 7 failure mode (triệu chứng→nguyên nhân→fix)", "type": "Lab", "h": 3}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.5", "item": "Lab: Ingestion pipeline — PDF có bảng, tiếng Việt, incremental", "type": "Lab", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W5", "code": "5.D", "item": "Deliverable: bảng so sánh naive→hybrid→rerank→rewrite", "type": "Deliverable", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.0", "item": "LT: Kiến trúc KMS, ACL-aware retrieval, agentic RAG, GraphRAG", "type": "Lý thuyết", "h": 4}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.1", "item": "P2: Ingestion upload PDF/DOCX/MD/URL + job queue + trạng thái", "type": "Project", "h": 3}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.2", "item": "P2: Hybrid retrieval + reranking tích hợp", "type": "Project", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.3", "item": "P2: ACL-aware retrieval — filter ở tầng query", "type": "Project", "h": 3}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.4", "item": "P2: Citation click được về đúng đoạn nguồn", "type": "Project", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.5", "item": "P2: Agentic mode — tự quyết định retrieve, multi-hop", "type": "Project", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.6", "item": "P2: Incremental update + xóa tài liệu khỏi index", "type": "Project", "h": 1}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.7", "item": "P2: Eval set ≥50 câu có ground truth, chạy 1 lệnh", "type": "Project", "h": 2}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.8", "item": "P2: Dashboard recall/precision/latency/cost", "type": "Project", "h": 1}, {"phase": "P2 · Data & Knowledge", "week": "W6", "code": "6.B", "item": "📣 Brand: '7 failure mode khiến RAG trả lời sai'", "type": "Brand", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W7", "code": "7.0", "item": "LT: Bản chất agent loop, tool design, điều kiện dừng, HITL", "type": "Lý thuyết", "h": 5}, {"phase": "P3 · Agent Systems", "week": "W7", "code": "7.1", "item": "Lab: Agent from scratch, KHÔNG framework (~300 dòng)", "type": "Lab", "h": 6}, {"phase": "P3 · Agent Systems", "week": "W7", "code": "7.2", "item": "Lab: Tool design — fine vs coarse grained, đo vòng lặp/token", "type": "Lab", "h": 3}, {"phase": "P3 · Agent Systems", "week": "W7", "code": "7.3", "item": "Lab: Error recovery — agent tự phục hồi ≥80%", "type": "Lab", "h": 3}, {"phase": "P3 · Agent Systems", "week": "W7", "code": "7.4", "item": "Lab: HITL approval gate có timeout & resume", "type": "Lab", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W7", "code": "7.D", "item": "Deliverable: agent tự viết hoàn thành nhiệm vụ đa bước thật", "type": "Deliverable", "h": 1}, {"phase": "P3 · Agent Systems", "week": "W8", "code": "8.0", "item": "LT: 4 trụ — Prompt/Context/Loop/Graph Engineering", "type": "Lý thuyết", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W8", "code": "8.0b", "item": "LT: LangGraph sâu — StateGraph, reducer, checkpointer, interrupt", "type": "Lý thuyết", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W8", "code": "8.0c", "item": "LT: Orchestration patterns + khi nào KHÔNG nên multi-agent", "type": "Lý thuyết", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W8", "code": "8.1", "item": "Lab: Port agent W7 sang LangGraph, so sánh", "type": "Lab", "h": 4}, {"phase": "P3 · Agent Systems", "week": "W8", "code": "8.2", "item": "Lab: Checkpoint & resume — kill giữa chừng, resume đúng chỗ", "type": "Lab", "h": 3}, {"phase": "P3 · Agent Systems", "week": "W8", "code": "8.3", "item": "Lab: Supervisor pattern vs 1 agent đủ tool — kết luận trung thực", "type": "Lab", "h": 4}, {"phase": "P3 · Agent Systems", "week": "W8", "code": "8.4", "item": "Lab: Reflection loop — chất lượng tăng vs token tăng", "type": "Lab", "h": 3}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.0", "item": "LT: MCP — host/client/server, transport, Tools/Resources/Prompts", "type": "Lý thuyết", "h": 3}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.0b", "item": "LT: MCP security (tool poisoning, confused deputy) + A2A", "type": "Lý thuyết", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.1", "item": "P3: Tự viết MCP server expose ≥5 tool domain thật", "type": "Project", "h": 5}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.2", "item": "P3: MCP server auth + permission model per tool", "type": "Project", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.3", "item": "P3: Agent LangGraph làm MCP client (server tự viết + bên thứ 3)", "type": "Project", "h": 3}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.4", "item": "P3: Nối P2 (RAG/KMS) thành 1 tool của agent", "type": "Project", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.5", "item": "P3: HITL approval cho tool có tác dụng phụ", "type": "Project", "h": 2}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.6", "item": "P3: Checkpoint/resume + giới hạn vòng lặp & ngân sách token", "type": "Project", "h": 1}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.7", "item": "P3: Trace đầy đủ mỗi bước + test 20 kịch bản (≥80% pass)", "type": "Project", "h": 1}, {"phase": "P3 · Agent Systems", "week": "W9", "code": "9.B", "item": "📣 Brand: 'Viết MCP server đầu tiên cho hệ thống của bạn'", "type": "Brand", "h": 2}, {"phase": "P4 · Production", "week": "W10", "code": "10.0", "item": "LT: Phân tầng eval + cách xây golden dataset", "type": "Lý thuyết", "h": 2}, {"phase": "P4 · Production", "week": "W10", "code": "10.0b", "item": "LT: Metrics retrieval/generation/agent/vận hành", "type": "Lý thuyết", "h": 2}, {"phase": "P4 · Production", "week": "W10", "code": "10.0c", "item": "LT: LLM-as-judge — rubric, calibrate, các bias", "type": "Lý thuyết", "h": 1}, {"phase": "P4 · Production", "week": "W10", "code": "10.0d", "item": "LT: OpenTelemetry cho LLM, trace/span, Langfuse & alternatives", "type": "Lý thuyết", "h": 1}, {"phase": "P4 · Production", "week": "W10", "code": "10.1", "item": "Lab: Golden dataset 100 mẫu cho P2+P3, phân tầng độ khó", "type": "Lab", "h": 4}, {"phase": "P4 · Production", "week": "W10", "code": "10.2", "item": "Lab: Eval harness — 1 lệnh ra full metrics + so baseline", "type": "Lab", "h": 4}, {"phase": "P4 · Production", "week": "W10", "code": "10.3", "item": "Lab: Calibrate judge — agreement với human label ≥0.8", "type": "Lab", "h": 3}, {"phase": "P4 · Production", "week": "W10", "code": "10.4", "item": "Lab: Langfuse self-hosted, trace đầy đủ cho cả 3 project", "type": "Lab", "h": 3}, {"phase": "P4 · Production", "week": "W10", "code": "10.5", "item": "Lab: CI gate — block merge nếu eval tụt >5%", "type": "Lab", "h": 2}, {"phase": "P4 · Production", "week": "W11", "code": "11.0", "item": "LT-A: Prompt injection direct/indirect + phòng thủ nhiều lớp", "type": "Lý thuyết", "h": 2}, {"phase": "P4 · Production", "week": "W11", "code": "11.0b", "item": "LT-A: PII, cost governance, scale, degradation, SLO cho AI", "type": "Lý thuyết", "h": 2}, {"phase": "P4 · Production", "week": "W11", "code": "11.1", "item": "Lab: Red-team 30 payload (≥10 indirect qua RAG), đo trước/sau", "type": "Lab", "h": 3}, {"phase": "P4 · Production", "week": "W11", "code": "11.2", "item": "Lab: Cost dashboard theo tenant/feature/model + alert", "type": "Lab", "h": 1}, {"phase": "P4 · Production", "week": "W11", "code": "11.3", "item": "Lab: Semantic cache — hit rate & tiền tiết kiệm", "type": "Lab", "h": 1}, {"phase": "P4 · Production", "week": "W11", "code": "11.4", "item": "Lab: Chaos test — provider chết, degrade đúng thiết kế", "type": "Lab", "h": 1}, {"phase": "P4 · Production", "week": "W11", "code": "11.0c", "item": "LT-B: Cây quyết định khi nào fine-tune (và khi nào KHÔNG)", "type": "Lý thuyết", "h": 2}, {"phase": "P4 · Production", "week": "W11", "code": "11.0d", "item": "LT-B: LoRA/QLoRA, dataset, serving vLLM/quantization, DPO/distill", "type": "Lý thuyết", "h": 2}, {"phase": "P4 · Production", "week": "W11", "code": "11.5", "item": "Lab: Fine-tune LoRA open-weight 7–8B cho 1 task hẹp", "type": "Lab", "h": 4}, {"phase": "P4 · Production", "week": "W11", "code": "11.6", "item": "Lab: Chuẩn bị dataset 500–1000 mẫu + val set sạch", "type": "Lab", "h": 3}, {"phase": "P4 · Production", "week": "W11", "code": "11.7", "item": "Lab: Đo trước/sau bằng eval harness W10 vs prompt trên model lớn", "type": "Lab", "h": 2}, {"phase": "P4 · Production", "week": "W11", "code": "11.8", "item": "Lab: Serve bằng vLLM, đo latency & cost/1000 req vs API", "type": "Lab", "h": 1}, {"phase": "P4 · Production", "week": "W12", "code": "12.1", "item": "Capstone: Kiến trúc tách lớp, provider-agnostic, đổi model bằng config", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.2", "item": "Capstone: RAG hybrid+rerank, citation, ACL-aware, recall@5 ≥0.85", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.3", "item": "Capstone: Agent LangGraph, checkpoint/resume, HITL, success ≥80%", "type": "Capstone", "h": 3}, {"phase": "P4 · Production", "week": "W12", "code": "12.4", "item": "Capstone: ≥1 MCP server tự viết có auth & permission per tool", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.5", "item": "Capstone: Golden set ≥100 mẫu, chạy trong CI, có baseline", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.6", "item": "Capstone: Trace đầy đủ + dashboard chất lượng & cost + alert", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.7", "item": "Capstone: Red-team 30 payload, bypass <10%, least-privilege tool", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.8", "item": "Capstone: Cost/request & cost/tenant chính xác + hard cap", "type": "Capstone", "h": 1}, {"phase": "P4 · Production", "week": "W12", "code": "12.9", "item": "Capstone: Fallback đa tầng, chaos test pass, SLO định nghĩa rõ", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.10", "item": "Capstone: Container + Terraform + CI/CD + healthcheck + rollback", "type": "Capstone", "h": 3}, {"phase": "P4 · Production", "week": "W12", "code": "12.11", "item": "Capstone: README + ADR + runbook sự cố", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.12", "item": "Capstone: Demo 15' + defense 15' ('tại sao chọn X thay vì Y')", "type": "Capstone", "h": 2}, {"phase": "P4 · Production", "week": "W12", "code": "12.B", "item": "📣 Brand: case study 'Build AI Agent Platform trong 12 tuần'", "type": "Brand", "h": 2}], "weeks": [{"week": "W0", "phase": "P0 · Prerequisites", "topic": "Prerequisites (chỉ Full-track)", "exit": "Giải thích được sync/async, stateless/stateful; debug được API bằng curl"}, {"week": "W1", "phase": "P1 · Nền tảng", "topic": "LLM Foundations & Model Selection", "exit": "Trình bày ma trận chọn model kèm số liệu TỰ ĐO (quality/latency/cost), không copy blog"}, {"week": "W2", "phase": "P1 · Nền tảng", "topic": "Prompt & Context Engineering", "exit": "Chứng minh prompt v2 tốt hơn v1 bao nhiêu %, trên tiêu chí gì"}, {"week": "W3", "phase": "P1 · Nền tảng", "topic": "AI App Architecture → P1", "exit": "100 req đồng thời không sập; đổi model qua env; xem được cost/conversation; cancel không rò token"}, {"week": "W4", "phase": "P2 · Data & Knowledge", "topic": "Embedding & Vector Retrieval", "exit": "Nêu chiến lược chunking tốt nhất cho corpus của mình KÈM BẰNG CHỨNG"}, {"week": "W5", "phase": "P2 · Data & Knowledge", "topic": "Advanced RAG & Failure Modes", "exit": "Bảng số liệu naive→hybrid→rerank→rewrite; chẩn đoán được cả 7 failure mode"}, {"week": "W6", "phase": "P2 · Data & Knowledge", "topic": "KMS / RAG System → P2", "exit": "recall@5 ≥ 0.85; mọi câu trả lời có citation; user A không bao giờ thấy tài liệu user B"}, {"week": "W7", "phase": "P3 · Agent Systems", "topic": "Tool Calling & Agent from Scratch", "exit": "Agent tự viết (không framework) hoàn thành 1 nhiệm vụ đa bước thật"}, {"week": "W8", "phase": "P3 · Agent Systems", "topic": "Orchestration: Graph, State, Multi-Agent", "exit": "Agent resume đúng chỗ sau khi kill; kết luận trung thực multi-agent có tốt hơn không"}, {"week": "W9", "phase": "P3 · Agent Systems", "topic": "MCP & Tool Ecosystem → P3", "exit": "≥80% trên 20 kịch bản; mọi hành động ghi/xóa qua approval; trace giải thích được quyết định"}, {"week": "W10", "phase": "P4 · Production", "topic": "Evaluation & Observability", "exit": "Đổi 1 prompt → biết chính xác tốt/xấu bao nhiêu %, trên tiêu chí nào, trong 10 phút"}, {"week": "W11", "phase": "P4 · Production", "topic": "Security, Cost, Scale + Fine-tuning", "exit": "Bypass rate <10% sau phòng thủ; trình bày cây quyết định fine-tune kèm số liệu thí nghiệm"}, {"week": "W12", "phase": "P4 · Production", "topic": "CAPSTONE & Deploy", "exit": "Pass đủ 12 hạng mục rubric nghiệm thu + defense 15 phút"}], "domains": [{"code": "D1", "name": "LLM Foundations & Model Selection", "req": null, "l1": "Biết gọi API, hiểu token/temperature", "l2": "Chọn model theo ma trận cost/latency/quality có số liệu TỰ CHẠY; hiểu tokenizer, context window, reasoning vs non-reasoning, structured output, caching", "l3": "Model portfolio đa nhà cung cấp, routing động, tự host open-weight"}, {"code": "D2", "name": "Prompt & Context Engineering", "req": null, "l1": "Viết prompt theo mẫu", "l2": "System prompt có cấu trúc, few-shot có chủ đích, context budgeting, compaction, tool-result shaping; ĐO được prompt nào tốt hơn", "l3": "Prompt framework tái sử dụng cho tổ chức, tự động tối ưu prompt"}, {"code": "D3", "name": "Application Architecture", "req": "BẮT BUỘC", "l1": "Gắn LLM vào 1 endpoint", "l2": "Kiến trúc AI service tách lớp (provider abstraction, streaming, queue, state store); async/background job; multi-tenant; versioning prompt & model", "l3": "Nền tảng AI dùng chung nhiều sản phẩm, microservice + event-driven"}, {"code": "D4", "name": "RAG & Knowledge Systems", "req": null, "l1": "Naive RAG với vector DB", "l2": "Hybrid search (BM25+vector) + reranking + chunking strategy có đo; citation; ingestion pipeline; xử lý được 7 failure mode của RAG", "l3": "GraphRAG, agentic retrieval, multi-corpus governance, retrieval eval harness"}, {"code": "D5", "name": "Agent Systems", "req": "BẮT BUỘC", "l1": "Dùng tool calling đơn giản", "l2": "Thiết kế agent loop (plan–act–observe), state machine/graph, tool design, MCP server/client, HITL, error recovery, sub-agent delegation", "l3": "Multi-agent orchestration quy mô lớn, A2A, agent governance & sandbox"}, {"code": "D6", "name": "Fine-tuning & Customization", "req": null, "l1": "Biết fine-tune là gì", "l2": "Quyết định đúng khi nào KHÔNG fine-tune; chạy được LoRA/QLoRA trên open-weight, chuẩn bị dataset, đánh giá trước/sau, serve model đã tune", "l3": "Distillation, RLHF/DPO, tối ưu serving (vLLM, quantization)"}, {"code": "D7", "name": "Evaluation & Observability", "req": "BẮT BUỘC", "l1": "Test thủ công", "l2": "Eval-driven development: golden dataset, LLM-as-judge có calibrate, regression suite trong CI, tracing/span, dashboard chất lượng + cost", "l3": "Online eval, A/B, canary theo chất lượng, eval platform nội bộ"}, {"code": "D8", "name": "Production Ops: Security, Cost, Scale", "req": null, "l1": "Deploy được", "l2": "Phòng prompt injection & data exfiltration, tool permission model, PII redaction, rate limit, cost per request/tenant, fallback & degradation, SLO", "l3": "Threat model toàn hệ, cost forecasting, compliance, multi-region"}], "fast": {"F1": ["W1", "W2"], "F2": ["W3"], "F3": ["W4", "W5"], "F4": ["W6"], "F5": ["W7", "W8"], "F6": ["W9"], "F7": ["W10"], "F8": ["W11", "W12"]}, "fastNote": {"F1": "Bỏ phần HTTP/API/streaming cơ bản — đã thạo. Tập trung Lab 1.2, 1.3 và toàn bộ W2.", "F2": "Kiến trúc backend đã mạnh → chỉ cần lớp AI-specific.", "F3": "Toán vector & SQL đã có, đi thẳng vào retrieval tuning.", "F4": "Giữ nguyên — ACL-aware retrieval là phần mới.", "F5": "Giữ nặng — đây là gap thật của senior dev chuyển sang AI.", "F6": "Giữ nguyên — MCP là kỹ năng khan hiếm, giá trị tư vấn cao.", "F7": "Eval là gap lớn nhất của mọi senior dev chuyển sang AI.", "F8": "Fine-tuning gọn, dồn sức cho capstone + deploy."}};
+const PC = {"P0 · Prerequisites":"--p0","P1 · Nền tảng":"--p1","P2 · Data & Knowledge":"--p2",
+            "P3 · Agent Systems":"--p3","P4 · Production":"--p4"};
+const slug = s => s.replace(/[^A-Za-z]/g,"");
+let done = {};          // in-memory only
+let track = "full";
+let scores = {};
+const $ = s => document.querySelector(s);
+
+// ---- reverse map week -> fast week
+const W2F = {};
+Object.entries(DATA.fast).forEach(([f,ws]) => ws.forEach(w => W2F[w]=f));
+
+function activeItems(){ return DATA.items.filter(i => track==="full" || i.week!=="W0"); }
+
+function ring(pct){
+  const r=15, c=2*Math.PI*r, off=c*(1-pct);
+  const col = pct>=1?"var(--ok)":pct>0?"var(--warn)":"#30363d";
+  return `<svg class="ring" viewBox="0 0 38 38"><circle cx="19" cy="19" r="${r}" fill="none" stroke="#21262d" stroke-width="4"/>
+  <circle cx="19" cy="19" r="${r}" fill="none" stroke="${col}" stroke-width="4" stroke-linecap="round"
+   stroke-dasharray="${c}" stroke-dashoffset="${off}" transform="rotate(-90 19 19)"/>
+  <text x="19" y="22.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="${pct>0?'#e6edf3':'#6e7681'}">${Math.round(pct*100)}</text></svg>`;
+}
+
+function renderKPIs(){
+  const its = activeItems();
+  const totH = its.reduce((a,b)=>a+b.h,0);
+  const dnH  = its.filter(i=>done[i.code]).reduce((a,b)=>a+b.h,0);
+  const dn   = its.filter(i=>done[i.code]).length;
+  const pct  = totH? dnH/totH : 0;
+  const wks  = track==="full"?"W0 + 12":"8";
+  const kpis = [
+    ["Tiến độ", Math.round(pct*100)+"%", dn+"/"+its.length+" hạng mục"],
+    ["Giờ đã học", dnH, "/ "+totH+" giờ kế hoạch"],
+    ["Thời lượng", wks+" tuần", track==="full"?"20–25h/tuần":"~22h/tuần, nén"],
+    ["Còn lại", (totH-dnH)+"h", totH-dnH>0? "≈ "+Math.ceil((totH-dnH)/22)+" tuần nữa":"Hoàn thành 🎉"],
+    ["Domain đạt L2", Object.values(scores).filter(v=>v>=2).length+"/8", "cần ≥ 6 + D3/D5/D7"],
+  ];
+  $("#kpis").innerHTML = kpis.map(k=>`<div class="kpi"><div class="lab">${k[0]}</div><div class="val">${k[1]}</div><div class="sub2">${k[2]}</div></div>`).join("");
+  $("#mainbar").style.width = (pct*100)+"%";
+}
+
+function renderWeeks(){
+  const fP=$("#fPhase").value, fT=$("#fType").value, fS=$("#fState").value;
+  const order = track==="full" ? DATA.weeks.map(w=>w.week)
+              : Object.keys(DATA.fast);
+  let html="", shown=0;
+  order.forEach(key=>{
+    const wkList = track==="full" ? [key] : DATA.fast[key];
+    const meta = DATA.weeks.filter(w=>wkList.includes(w.week));
+    let its = DATA.items.filter(i=>wkList.includes(i.week));
+    const totH = its.reduce((a,b)=>a+b.h,0);
+    const dnH  = its.filter(i=>done[i.code]).reduce((a,b)=>a+b.h,0);
+    const pct  = totH?dnH/totH:0;
+    let vis = its.filter(i=>(!fP||i.phase===fP)&&(!fT||i.type===fT)
+                &&(!fS|| (fS==="done"? !!done[i.code] : !done[i.code])));
+    if(!vis.length) return;
+    shown++;
+    const ph = meta[0].phase;
+    const title = track==="full" ? meta[0].topic : meta.map(m=>m.topic).join("  ·  ");
+    html += `<div class="wk" data-k="${key}">
+      <div class="wkh">
+        ${ring(pct)}
+        <span class="chip" style="background:color-mix(in srgb,var(${PC[ph]}) 20%,transparent);color:var(${PC[ph]})">${key}</span>
+        <span class="wkt">${title}</span>
+        <span class="wkm">${dnH}/${totH}h · ${vis.length} mục</span>
+        <span class="caret">▶</span>
+      </div>
+      <div class="wkb">
+        ${track==="fast"&&DATA.fastNote[key]?`<div class="fnote"><b>Fast-track:</b> ${DATA.fastNote[key]}</div>`:""}
+        ${meta.map(m=>`<div class="exit"><b>Exit criteria ${track==="fast"?"("+m.week+")":""}:</b> ${m.exit}</div>`).join("")}
+        ${vis.map(i=>`<div class="it ${done[i.code]?"done":""}">
+            <input type="checkbox" id="c_${i.code}" data-c="${i.code}" ${done[i.code]?"checked":""}>
+            <label for="c_${i.code}"><span class="code">${i.code}</span>${i.item}
+            <span class="tag t-${slug(i.type)}">${i.type}</span><span class="hrs">${i.h}h</span></label>
+          </div>`).join("")}
+      </div></div>`;
+  });
+  $("#weeks").innerHTML = html || `<div style="color:var(--tx3);padding:30px;text-align:center">Không có mục nào khớp bộ lọc.</div>`;
+  $("#wkCount").textContent = shown+" khối";
+  document.querySelectorAll(".wkh").forEach(h=>h.onclick=e=>{
+    if(e.target.tagName==="INPUT") return;
+    h.parentElement.classList.toggle("open");
+  });
+  document.querySelectorAll(".it input").forEach(cb=>cb.onchange=()=>{
+    done[cb.dataset.c]=cb.checked;
+    cb.closest(".it").classList.toggle("done",cb.checked);
+    renderKPIs(); refreshRings();
+  });
+}
+function refreshRings(){
+  document.querySelectorAll(".wk").forEach(el=>{
+    const key=el.dataset.k;
+    const wkList = track==="full"?[key]:DATA.fast[key];
+    const its=DATA.items.filter(i=>wkList.includes(i.week));
+    const totH=its.reduce((a,b)=>a+b.h,0), dnH=its.filter(i=>done[i.code]).reduce((a,b)=>a+b.h,0);
+    el.querySelector(".ring").outerHTML = ring(totH?dnH/totH:0);
+    el.querySelector(".wkm").textContent = `${dnH}/${totH}h · ${its.length} mục`;
+  });
+}
+
+function renderMatrix(){
+  $("#mxBody").innerHTML = DATA.domains.map(d=>`<tr>
+    <td><b>${d.code}</b> ${d.name}${d.req?'<span class="req">BẮT BUỘC</span>':""}</td>
+    <td style="color:var(--tx2)">${d.l1}</td>
+    <td class="l2">${d.l2}</td>
+    <td style="color:var(--tx2)">${d.l3}</td>
+    <td><div class="score" data-d="${d.code}">${[0,1,2,3].map(n=>
+      `<button data-n="${n}" class="${scores[d.code]===n?"on"+(n>=2?" l2p":""):""}">${n}</button>`).join("")}</div></td>
+  </tr>`).join("");
+  document.querySelectorAll(".score button").forEach(b=>b.onclick=()=>{
+    const d=b.parentElement.dataset.d;
+    scores[d] = scores[d]===+b.dataset.n ? undefined : +b.dataset.n;
+    renderMatrix(); renderVerdict(); renderKPIs();
+  });
+}
+function renderVerdict(){
+  const n = Object.values(scores).filter(v=>v>=2).length;
+  const core = ["D3","D5","D7"].every(c=>scores[c]>=2);
+  const sen = Object.values(scores).filter(v=>v>=3).length;
+  let txt,col,sub;
+  if(!Object.keys(scores).length){txt="Chưa chấm";col="var(--tx3)";sub="Chấm 8 domain ở bảng trên để xem xếp loại.";}
+  else if(n>=6&&core&&sen>=3){txt="MIDDLE+ — tiệm cận Senior";col="var(--ok)";sub=`${n}/8 domain ≥ L2, trong đó ${sen} domain đạt L3.`;}
+  else if(n>=6&&core){txt="ĐẠT MIDDLE LEVEL";col="var(--ok)";sub=`${n}/8 domain ≥ L2 và cả D3, D5, D7 đều đạt.`;}
+  else {txt="CHƯA ĐẠT";col="var(--warn)";
+    const miss=["D3","D5","D7"].filter(c=>!(scores[c]>=2));
+    sub = (n<6?`Mới ${n}/8 domain ≥ L2 (cần ≥6). `:"") + (miss.length?`Domain bắt buộc còn thiếu: ${miss.join(", ")}.`:"");}
+  $("#verdict").textContent=txt; $("#verdict").style.color=col; $("#verdictSub").textContent=sub;
+}
+
+// ---- filters
+const phases=[...new Set(DATA.items.map(i=>i.phase))];
+const types =[...new Set(DATA.items.map(i=>i.type))];
+$("#fPhase").innerHTML += phases.map(p=>`<option>${p}</option>`).join("");
+$("#fType").innerHTML  += types.map(t=>`<option>${t}</option>`).join("");
+["#fPhase","#fType","#fState"].forEach(s=>$(s).onchange=()=>{renderWeeks();});
+document.querySelectorAll("#trackTog button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#trackTog button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); track=b.dataset.t; renderWeeks(); renderKPIs();
+});
+$("#expandAll").onclick=()=>{
+  const any=[...document.querySelectorAll(".wk")].some(w=>!w.classList.contains("open"));
+  document.querySelectorAll(".wk").forEach(w=>w.classList.toggle("open",any));
+};
+$("#saveBtn").onclick=()=>{$("#dlgTa").value=JSON.stringify({done,scores});$("#dlg").showModal();};
+$("#dlgClose").onclick=()=>$("#dlg").close();
+$("#dlgLoad").onclick=()=>{
+  try{const o=JSON.parse($("#dlgTa").value);done=o.done||{};scores=o.scores||{};
+    renderWeeks();renderMatrix();renderVerdict();renderKPIs();$("#dlg").close();}
+  catch(e){$("#dlgTa").value="⚠ Mã không hợp lệ — dán lại đoạn JSON đã lưu.";}
+};
+
+renderWeeks(); renderMatrix(); renderVerdict(); renderKPIs();
+</script>
+</body></html>
